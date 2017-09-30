@@ -4,9 +4,12 @@ MAINTAINER Sergey Gonimar <sergey.gonimar@gmail.com>
 ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
 
-
-RUN npm install -g @angular/cli && \
-    npm cache clean
+run apk --no-cache add --virtual native-deps \
+  g++ gcc libgcc libstdc++ linux-headers make python && \
+  npm install --quiet node-gyp -g &&\
+  npm install -g @angular/cli --quiet && \
+  npm cache clean && \
+  apk del native-deps
 
 RUN git config --global user.name "Sergey Gonimar" && \
     git config --global user.email "sergey.gonimar@gmail.com"
