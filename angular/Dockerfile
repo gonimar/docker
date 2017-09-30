@@ -4,14 +4,15 @@ MAINTAINER Sergey Gonimar <sergey.gonimar@gmail.com>
 ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
 
-run apk --no-cache add --virtual native-deps \
-  g++ gcc libgcc libstdc++ linux-headers make python && \
-  npm install -g @angular/cli --quiet && \
-  npm cache clean && \
-  apk del native-deps
+RUN apk --no-cache add --virtual native-deps python
 
-RUN git config --global user.name "Sergey Gonimar" && \
-    git config --global user.email "sergey.gonimar@gmail.com"
+RUN chown -R node:node /usr/local/lib/node_modules
+RUN chown -R node:node /usr/local/bin
+
+USER node
+
+RUN npm install -g @angular/cli --quiet && \
+  npm cache clean --force
 
 VOLUME ["/usr/src/app"]
 WORKDIR /usr/src/app
