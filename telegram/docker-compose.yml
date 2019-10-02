@@ -1,0 +1,18 @@
+version: '2.0'
+
+services:
+  mtproxy:
+    image: gonimar/telegram-proxy:latest
+    hostname: mtproxy
+    container_name: mtproxy.local
+    ports:
+      - "8443:443"
+    volumes:
+      - proxy-config:/data
+      # network_mode: "host"
+    restart: always
+    env_file:
+      - ./config.env
+volumes:
+  proxy-config:
+    external: true

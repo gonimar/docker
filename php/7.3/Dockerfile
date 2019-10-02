@@ -21,7 +21,10 @@ RUN apt-get update && \
     --no-install-recommends
 
 RUN docker-php-ext-install -j$(nproc) \
-    bcmath bz2 calendar dom gd gettext iconv intl json mbstring mysqli opcache pdo_mysql pdo_pgsql pgsql soap zip
+    bcmath \
+    bz2 \
+    calendar \
+    dom gd gettext iconv intl json mbstring mysqli opcache pdo_mysql pdo_pgsql pgsql soap zip
 
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
     docker-php-ext-install gd
