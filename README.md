@@ -23,3 +23,9 @@
 [![Docker Automated build](https://img.shields.io/docker/automated/gonimar/cli.svg)]()
 
 `docker run -it --rm -v $(pwd):/runtime gonimar/cli`
+
+## PHP
+[![Docker Stars](https://img.shields.io/docker/stars/gonimar/php.svg)]()
+[![Docker Pulls](https://img.shields.io/docker/pulls/gonimar/php.svg)]()
+[![Docker Build Status](https://img.shields.io/docker/build/gonimar/php.svg)]()
+[![Docker Automated build](https://img.shields.io/docker/automated/gonimar/php.svg)]()
