@@ -32,7 +32,8 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
-RUN apt-get purge -y --auto-remove && rm -rf /var/lib/apt/lists/*
+RUN rm -rf /var/lib/apt/lists/*
+#apt-get purge -y --auto-remove &&
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
