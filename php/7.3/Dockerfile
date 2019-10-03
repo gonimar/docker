@@ -34,6 +34,11 @@ RUN pecl install xdebug \
 
 RUN apt-get purge -y --auto-remove && rm -rf /var/lib/apt/lists/*
 
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-ENV COMPOSER_ALLOW_SUPERUSER=1
+RUN composer global require "squizlabs/php_codesniffer=*"
+RUN composer global require "phpmd/phpmd=@stable"
+
+RUN echo "export PATH=${PATH}:$(composer config home --global)/vendor/bin" >> ${HOME}/.profile
