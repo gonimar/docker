@@ -42,3 +42,5 @@ RUN composer global require "squizlabs/php_codesniffer=*"
 RUN composer global require "phpmd/phpmd=@stable"
 
 RUN echo "export PATH=${PATH}:$(composer config home --global)/vendor/bin" >> ${HOME}/.profile
+
+RUN . ${HOME}/.profile
