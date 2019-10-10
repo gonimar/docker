@@ -40,6 +40,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN composer global require "squizlabs/php_codesniffer=*"
 RUN composer global require "phpmd/phpmd=@stable"
+RUN composer global require "sebastian/phpcpd"
 
 RUN echo "export PATH=${PATH}:$(composer config home --global)/vendor/bin" >> ${HOME}/.profile
 
