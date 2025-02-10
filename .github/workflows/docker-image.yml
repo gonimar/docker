@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file postgres/Dockerfile --tag postgres:$(date +%s)
+      - uses: actions/checkout@v4
+      - name: Build CLI
+        run: docker build . --file cli/Dockerfile --tag cli:$(date +%s)
+      - name: Build semver
+        run: docker build . --file semver/Dockerfile --tag semver:$(date +%s)
+      - name: Build PostgreSQL
+        run: docker build . --file postgres/Dockerfile --tag postgres:$(date +%s)
