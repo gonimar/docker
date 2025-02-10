@@ -1,5 +1,9 @@
 # Docker files
 
+[![Docker Image CI](https://github.com/gonimar/docker/actions/workflows/docker-image.yml/badge.svg)](https://github.com/gonimar/docker/actions/workflows/docker-image.yml)
+[![Docker publish](https://github.com/gonimar/docker/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/gonimar/docker/actions/workflows/docker-publish.yml)
+
+
 ## Cli
 [![Docker Stars](https://img.shields.io/docker/stars/gonimar/cli.svg)]()
 [![Docker Pulls](https://img.shields.io/docker/pulls/gonimar/cli.svg)]()
