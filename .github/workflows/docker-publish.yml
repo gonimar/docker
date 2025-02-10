@@ -36,7 +36,7 @@ jobs:
 
     env:
       # github.owner as <owner>/<sub dir>
-      IMAGE_NAME: ${{ github.owner }}/${{ matrix.image }}
+      IMAGE_NAME: ${{ github.repository_owner }}/${{ matrix.image }}
 
     steps:
       - name: Checkout repository

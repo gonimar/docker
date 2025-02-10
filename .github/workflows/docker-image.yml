@@ -11,10 +11,13 @@ jobs:
     strategy:
       matrix:
         image: [ cli, semver, postgres ]
+    env:
+      # github.owner as <owner>/<sub dir>
+      IMAGE_NAME: ${{ github.repository_owner }}/${{ matrix.image }}
 
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-      - name: Build {{matrix.image}}
-        run: docker build . --file ${{matrix.image}}/Dockerfile --tag ${{matrix.image}}:$(date +%s)
+      - name: Build ${{matrix.image}}
+        run: docker build . --file ${{ matrix.image }}/Dockerfile --tag ${{ env.IMAGE_NAME }}:$(date +%s)
