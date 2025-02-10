@@ -26,7 +26,7 @@ jobs:
   build:
     strategy:
       matrix:
-        docker-image: [cli, semver, postgres]
+        image: [cli, semver, postgres]
 
     runs-on: ubuntu-latest
     permissions:

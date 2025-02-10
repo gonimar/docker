@@ -9,14 +9,13 @@ on:
 jobs:
 
   build:
+    strategy:
+      matrix:
+        image: [cli, semver, postgres]
 
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-      - name: Build CLI
-        run: docker build . --file cli/Dockerfile --tag cli:$(date +%s)
-      - name: Build semver
-        run: docker build . --file semver/Dockerfile --tag semver:$(date +%s)
-      - name: Build PostgreSQL
-        run: docker build . --file postgres/Dockerfile --tag postgres:$(date +%s)
+      - name: Build {{matrix.image}}
+        run: docker build . --file {{matrix.image}}/Dockerfile --tag {{matrix.image}}:$(date +%s)
