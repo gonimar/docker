@@ -18,4 +18,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build {{matrix.image}}
-        run: docker build . --file {{matrix.image}}/Dockerfile --tag {{matrix.image}}:$(date +%s)
+        run: docker build . --file ${{matrix.image}}/Dockerfile --tag ${{matrix.image}}:$(date +%s)
