@@ -7,11 +7,10 @@ on:
     branches: [ "master" ]
 
 jobs:
-
   build:
     strategy:
       matrix:
-        image: [cli, semver, postgres]
+        image: [ cli, semver, postgres ]
 
     runs-on: ubuntu-latest
 
