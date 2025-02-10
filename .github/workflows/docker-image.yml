@@ -19,5 +19,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Build ${{matrix.image}}
+      - name: Build ${{ env.IMAGE_NAME }}
         run: docker build . --file ${{ matrix.image }}/Dockerfile --tag ${{ env.IMAGE_NAME }}:$(date +%s)
